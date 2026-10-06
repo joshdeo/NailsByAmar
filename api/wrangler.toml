@@ -1,0 +1,43 @@
+name = "nailsbyamar-api"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+# Runs the job that frees up unpaid holds. Every hour, on the hour.
+[triggers]
+crons = ["0 * * * *"]
+
+[vars]
+# Studio hours. OPEN_DAYS uses 0 for Sunday through 6 for Saturday.
+# These are placeholder hours. Replace them with Amar's real hours before going live.
+STUDIO_TZ = "America/Toronto"
+OPEN_DAYS = "2,3,4,5,6"
+OPEN_TIME = "10:00"
+CLOSE_TIME = "18:00"
+
+# Gap kept free after each appointment, how often start times appear, and how far ahead people can book.
+BUFFER_MINS = "15"
+SLOT_STEP_MINS = "30"
+LEAD_HOURS = "24"
+MAX_DAYS = "28"
+
+# Deposit in dollars, and how many hours a booking is held while waiting for the etransfer.
+# After that time, an event still marked DEPOSIT DUE is deleted. Set DEPOSIT_HOLD_HOURS to "0" to never delete.
+# The deposit amount shown on the website is set separately, in site/site.js.
+DEPOSIT_AMOUNT = "20"
+DEPOSIT_HOLD_HOURS = "24"
+
+# How many unpaid spots one email address can hold at the same time.
+MAX_UNPAID_PER_CLIENT = "2"
+
+STUDIO_LOCATION = "Airport Rd & Countryside Dr, Brampton, ON L6P 0V3"
+
+# Your live website address, with no trailing slash. Only your website is allowed to call this backend.
+ALLOWED_ORIGINS = "https://REPLACE-WITH-YOUR-SITE.pages.dev"
+
+# Optional. Extra calendars to treat as busy time, comma separated calendar IDs.
+# BUSY_CALENDAR_IDS = ""
+
+# Secrets are NOT stored here. Set them with: npx wrangler secret put NAME
+#   GOOGLE_SERVICE_ACCOUNT_EMAIL
+#   GOOGLE_PRIVATE_KEY
+#   GOOGLE_CALENDAR_ID

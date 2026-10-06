@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book, Nails by Amar</title>
+<meta name="description" content="Pick a tier, a day and a time. A $20 deposit holds your spot.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bagel+Fat+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="index.html">Nails by Amar</a>
+    <nav aria-label="Main">
+      <a href="services.html">Services</a>
+      <a href="book.html" aria-current="page">Book</a>
+      <a href="policy.html">Policy</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="find.html">Find me</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Book online</p>
+    <h1>Lock in your spot</h1>
+  </div>
+</section>
+
+<section class="tight" aria-label="Booking">
+  <div class="wrap">
+    <div class="book-grid">
+      <div class="card" id="bookCard">
+        <form id="bookForm" novalidate>
+          <div class="step">
+            <h3><span>1</span>Choose your tier</h3>
+            <div class="opts" id="tierOpts" role="radiogroup" aria-label="Tier"></div>
+          </div>
+          <div class="step">
+            <h3><span>2</span>Pick a day</h3>
+            <div class="dates" id="dates" aria-live="polite"><div class="empty">Choose a tier to see open days.</div></div>
+          </div>
+          <div class="step">
+            <h3><span>3</span>Pick a time</h3>
+            <div id="times" aria-live="polite"><div class="empty">Pick a day to see open times.</div></div>
+          </div>
+          <div class="step">
+            <h3><span>4</span>Your details</h3>
+            <div class="form-grid">
+              <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+              <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+              <div class="field full"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+              <div class="field full"><label for="f-notes">Inspo link or notes (optional)</label><textarea id="f-notes" name="notes" maxlength="500" placeholder="Shape, length, colors, anything Amar should know"></textarea></div>
+            </div>
+            <label class="check" for="f-removal"><input id="f-removal" type="checkbox"><span>I need a removal first. This adds $10, paid in cash.</span></label>
+            <label class="check" for="f-agree"><input id="f-agree" type="checkbox" required><span>I read the <a href="policy.html">booking policy</a> and agree to it.</span></label>
+          </div>
+          <div class="msg" id="msg" role="status" aria-live="polite"></div>
+          <button class="btn" id="submitBtn" type="submit">Reserve my spot</button>
+          <p class="small muted" style="margin-top:12px" id="payHelp">Reserve now, then send your $20 deposit by Interac etransfer. The rest is paid in cash at your appointment. Having trouble? <a id="setmoreLink" href="https://nailsbyamar.setmore.com/" target="_blank" rel="noopener">Book through Setmore instead.</a></p>
+        </form>
+        <div class="done" id="done" hidden>
+          <p class="eyebrow">Almost done</p>
+          <p class="big" id="doneTitle">Your spot is reserved.</p>
+          <p id="doneWhen"></p>
+          <div class="pay" id="donePay">
+            <p><b>Next step: send your $<span id="doneAmt">20</span> deposit by Interac etransfer</b><span id="doneBy"></span></p>
+            <div class="copyrow"><span id="doneEmail"></span><button type="button" id="copyPay">Copy email</button></div>
+            <p class="small">Put your name and appointment date in the message. Bring <span id="doneCash"></span> in cash to your appointment.</p>
+          </div>
+          <p class="muted" id="doneNote"></p>
+          <div class="cta">
+            <a class="btn" id="icsLink" download="nails-by-amar.ics" href="#">Add to my calendar</a>
+            <button class="btn ghost" type="button" id="againBtn">Book another set</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card summary" aria-label="Appointment summary">
+        <h3>Your appointment</h3>
+        <dl class="rows">
+          <div><dt>Tier</dt><dd id="sTier">Not chosen</dd></div>
+          <div><dt>Length</dt><dd id="sLen">Not chosen</dd></div>
+          <div><dt>When</dt><dd id="sWhen">Not chosen</dd></div>
+          <div><dt>Removal</dt><dd id="sRem">None</dd></div>
+          <div class="total"><dt>Deposit by etransfer</dt><dd id="sDep">$20</dd></div>
+          <div><dt>Cash at appointment</dt><dd id="sCash">Not chosen</dd></div>
+        </dl>
+        <p class="small muted" style="margin-top:16px">Appointments may take 2+ hours. Please park on the road side.</p>
+        <p class="small muted" style="margin-top:8px">Airport Rd &amp; Countryside Dr, Brampton, Ontario L6P 0V3</p>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Nails by Amar, Brampton, Ontario</span>
+    <a href="https://www.instagram.com/nailsby_amar/" target="_blank" rel="noopener">@nailsby_amar</a>
+  </div>
+</footer>
+
+
+<noscript>
+  <div class="wrap" style="padding-block:24px">
+    <p>Some parts of this site need JavaScript. You can book at <a href="https://nailsbyamar.setmore.com/">nailsbyamar.setmore.com</a> or message @nailsby_amar on Instagram.</p>
+  </div>
+</noscript>
+<script src="site.js"></script>
+<script src="book.js"></script>
+</body>
+</html>
